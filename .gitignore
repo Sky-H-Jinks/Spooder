@@ -1,62 +1,24 @@
-gitignore# Build directories
-build/
-SpooderBody/src/build/
-cmake-build-*/
-CMakeFiles/
-*.dir/
+# ==== Build artifacts ====
+SpooderBody/build/
+build/                     # (if you ever move it to root)
 
-# CMake-generated files
+# ==== CMake generated files ====
 CMakeCache.txt
-CMakeScripts/
+CMakeFiles/
 cmake_install.cmake
-install_manifest.txt
-CTestTestfile.cmake
-DartConfiguration.tcl
+Makefile
+compile_commands.json
+*.cmake
 
-# Compiled object files and binaries
-*.o
-*.a
-*.so
-*.dylib
-*.exe
-*.out
-*.app
-
-# Debug & IDE files
-*.log
-*.tmp
+# ==== IDE / editor junk ====
+.idea/
+.vscode/
 *.swp
 *~
 .DS_Store
-.idea/
-.vscode/
-*.code-workspace
-.cproject
-.project
-.settings/
+Thumbs.db
 
-# Build system artifacts
-Makefile
-*.ninja
-*.ninja_deps
-*.ninja_log
-
-# Python cache (if you have any scripts)
-__pycache__/
-*.pyc
-
-# Testing / coverage
-htmlcov/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.pytest_cache/
-
-# Optional: ignore large binaries or generated files
-*.bin
-*.dat
-*.raw
+# ==== Optional: other binaries ====
+*.o
+*.a
+*.so
