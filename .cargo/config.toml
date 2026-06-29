@@ -1,0 +1,2 @@
+[target.aarch64-unknown-linux-gnu]
+runner = "powershell -ExecutionPolicy Bypass -File deploy-run.ps1"
