@@ -1,6 +1,6 @@
 use rppal::i2c::I2c;
 use std::{thread::sleep, time::Duration};
-use crate::{leg_servo::LegServo, tween::Tween};
+use crate::{hat::Hat, leg_servo::LegServo, tween::Tween};
 
 #[derive(Clone, Copy)]
 pub enum LegJoint {
@@ -25,13 +25,9 @@ impl Leg {
         Leg { id, servos }
     }
 
-    pub fn move_joint(&mut self, joint: LegJoint, i2c: &mut I2c, angle: f32) -> Result<(), Box<dyn std::error::Error>> {
-        self.servos[joint as usize].smooth_set_angle(i2c, angle)
-    }
-
-    pub fn move_joint_start_pos(&mut self, i2c: &mut I2c) -> Result<(), Box<dyn std::error::Error>> {
+    pub fn move_joint_start_pos(&mut self, hat: &mut Hat) -> Result<(), Box<dyn std::error::Error>> {
         for servo in &mut self.servos {
-            servo.home_servo(i2c);
+            servo.home_servo(hat)?;
             sleep(Duration::from_millis(100));
         }
         
